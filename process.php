@@ -3,24 +3,7 @@
 $sentence = $_POST["text"];
 $order = $_POST["sort"];
 $limit = $_POST["limit"];
-/**
- * This function implements error handling which displays
- * an error message and terminates the script execution *
- */
-function handleError($errorMessage) {
-    echo "<p>Error: $errorMessage</p>";
-    exit;
 
-    if (empty($sentence)) {
-        handleError("Please provide a sentence.");
-    }
-    
-    if (!is_numeric($limit) || $limit < 1) {
-        handleError("Invalid limit value. Please enter a positive number.");
-    }
-
-    tokenizeSentence($sentence, $order, $limit);
-}
 /**
  * This function counts the number of occurance of words from tokenized_words
  * and excludes the words that insides the $stop_words
